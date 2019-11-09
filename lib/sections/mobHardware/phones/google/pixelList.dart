@@ -9,7 +9,8 @@ import 'package:playgrnd/sections/mobHardware/utils/phoneModel.dart';
 List<Phone> pixels = [
   Phone(
     phoneName: 'Pixel XL',
-    phone: PixelXL(),
+    phoneBack: PixelXL(),
+    phoneFront: PixelXL().front(),
     colors: {
       'Gloss Panel': Colors.white,
       'Matte Panel': Colors.grey[300],
@@ -20,7 +21,8 @@ List<Phone> pixels = [
   ),
   Phone(
     phoneName: 'Pixel 2',
-    phone: Pixel2(),
+    phoneBack: Pixel2(),
+    phoneFront: Pixel2().front(),
     colors: {
       'Gloss Panel': Colors.black,
       'Matte Panel': Colors.grey[900],
@@ -30,7 +32,8 @@ List<Phone> pixels = [
   ),
   Phone(
     phoneName: 'Pixel 2 XL',
-    phone: Pixel2XL(),
+    phoneBack: Pixel2XL(),
+    phoneFront: Pixel2XL().front(),
     colors: {
       'Gloss Panel': Colors.black,
       'Matte Panel': Colors.white,
@@ -40,7 +43,8 @@ List<Phone> pixels = [
   ),
   Phone(
     phoneName: 'Pixel 3 XL',
-    phone: Pixel3XL(),
+    phoneBack: Pixel3XL(),
+    phoneFront: Pixel3XL().front(),
     colors: {
       'Gloss Panel': Colors.white,
       'Matte Panel': Colors.white,
@@ -50,7 +54,8 @@ List<Phone> pixels = [
   ),
   Phone(
     phoneName: 'Pixel 4 XL',
-    phone: Pixel4XL(),
+    phoneBack: Pixel4XL(),
+    phoneFront: Pixel4XL().front(),
     colors: {
       'Camera Bump': Colors.black,
       'Back Panel': Colors.deepOrange[500],

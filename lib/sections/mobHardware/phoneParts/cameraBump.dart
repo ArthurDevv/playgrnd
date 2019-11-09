@@ -19,7 +19,8 @@ class CameraBump extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
       width: width,
       height: height,
       decoration: BoxDecoration(

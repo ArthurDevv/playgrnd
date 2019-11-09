@@ -2,29 +2,42 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:playgrnd/sections/mobHardware/widgets/colorPickerButton.dart';
+import 'package:flip_card/flip_card.dart';
 
 class MobEditPage extends StatefulWidget {
-  final Widget phone;
+  final Widget phoneBack, phoneFront;
   final String phoneName;
   final Map<String, Color> colors;
 
-  MobEditPage({@required this.phone, @required this.phoneName, this.colors});
+  MobEditPage({
+    @required this.phoneBack,
+    this.phoneFront,
+    @required this.phoneName,
+    this.colors,
+  });
 
   @override
-  _MobEditPageState createState() =>
-      _MobEditPageState(phone: phone, phoneName: phoneName, colors: colors);
+  _MobEditPageState createState() => _MobEditPageState(
+        phoneBack: phoneBack,
+        phoneFront: phoneFront,
+        phoneName: phoneName,
+        colors: colors,
+      );
 }
 
 class _MobEditPageState extends State<MobEditPage> {
-  Widget phone;
+  Widget phoneBack, phoneFront;
   String phoneName;
   Map<String, Color> colors;
 
   _MobEditPageState({
-    this.phone,
+    this.phoneBack,
+    this.phoneFront,
     this.phoneName,
     this.colors,
   });
+
+  GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +63,33 @@ class _MobEditPageState extends State<MobEditPage> {
             children: <Widget>[
               Expanded(
                 flex: 2,
-                child: Hero(
-                  tag: phoneName,
-                  child: phone,
+                child: Column(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 5,
+                      child: Hero(
+                        tag: phoneName,
+                        child: FlipCard(
+                          flipOnTouch: false,
+                          key: cardKey,
+                          front: phoneBack,
+                          back: phoneFront,
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: Center(
+                        child: RaisedButton(
+                          child: Text(
+                            'Flip',
+                            style: Theme.of(context).textTheme.body2,
+                          ),
+                          onPressed: () => cardKey.currentState.toggleCard(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(width: 16.0),

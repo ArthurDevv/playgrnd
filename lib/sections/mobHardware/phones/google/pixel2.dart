@@ -4,14 +4,10 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/fingerprintSensor.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 
-class Pixel2 extends StatefulWidget {
-  @override
-  _Pixel2State createState() => _Pixel2State();
-}
-
-class _Pixel2State extends State<Pixel2> {
+class Pixel2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color glossPanelColor = pixels[1].colors['Gloss Panel'];
@@ -25,7 +21,7 @@ class _Pixel2State extends State<Pixel2> {
         width: 240.0,
         height: 480.0,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(23.0),
+            borderRadius: BorderRadius.circular(20.0),
             border: Border.all(
               color: glossPanelColor,
             ),
@@ -49,8 +45,8 @@ class _Pixel2State extends State<Pixel2> {
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.zero,
                     topRight: Radius.zero,
-                    bottomLeft: Radius.circular(23.0),
-                    bottomRight: Radius.circular(23.0),
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
                   ),
                   color: mattePanelColor,
                 ),
@@ -61,8 +57,8 @@ class _Pixel2State extends State<Pixel2> {
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.zero,
                       topRight: Radius.zero,
-                      bottomLeft: Radius.circular(23.0),
-                      bottomRight: Radius.circular(23.0),
+                      bottomLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0),
                     ),
                     gradient: LinearGradient(
                       colors: [
@@ -122,6 +118,18 @@ class _Pixel2State extends State<Pixel2> {
           ],
         ),
       ),
+    );
+  }
+
+  Screen front() {
+    return Screen(
+      bezelVertical: 120.0,
+      innerCornerRadius: 0.0,
+      screenAlignment: Alignment.center,
+      notchAlignment: Alignment(0.0, -1.0),
+      notchHeight: 35.0,
+      notchWidth: 100.0,
+      cornerRadius: 20.0,
     );
   }
 }

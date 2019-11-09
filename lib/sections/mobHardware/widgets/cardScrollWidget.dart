@@ -48,7 +48,7 @@ class CardScrollWidget extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: Hero(
               tag: phoneList[i].phoneName,
-              child: phoneList[i].phone,
+              child: phoneList[i].phoneBack,
             ),
           );
           cardList.add(cardItem);

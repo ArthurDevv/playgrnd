@@ -4,6 +4,7 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 
 class Pixel4XL extends StatelessWidget {
@@ -115,6 +116,13 @@ class Pixel4XL extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Screen front() {
+    return Screen(
+      bezelVertical: 40.0,
+      screenAlignment: Alignment(0.0, 0.6),
     );
   }
 }

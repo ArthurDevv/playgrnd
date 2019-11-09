@@ -4,14 +4,10 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 
-class IPhone11ProMax extends StatefulWidget {
-  @override
-  _IPhone11ProMaxState createState() => _IPhone11ProMaxState();
-}
-
-class _IPhone11ProMaxState extends State<IPhone11ProMax> {
+class IPhone11ProMax extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color cameraBumpColor = iPhones[1].colors['Camera Bump'];
@@ -105,6 +101,12 @@ class _IPhone11ProMaxState extends State<IPhone11ProMax> {
           ],
         ),
       ),
+    );
+  }
+
+  Screen front() {
+    return Screen(
+      hasNotch: true,
     );
   }
 }

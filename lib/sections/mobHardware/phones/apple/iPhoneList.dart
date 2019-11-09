@@ -6,7 +6,8 @@ import 'package:playgrnd/sections/mobHardware/utils/phoneModel.dart';
 List<Phone> iPhones = [
   Phone(
     phoneName: 'iPhone 11',
-    phone: IPhone11(),
+    phoneBack: IPhone11(),
+    phoneFront: IPhone11().front(),
     colors: {
       'Camera Bump': Colors.white,
       'Back Panel': Colors.white,
@@ -15,7 +16,8 @@ List<Phone> iPhones = [
   ),
   Phone(
     phoneName: 'iPhone 11 Pro Max',
-    phone: IPhone11ProMax(),
+    phoneBack: IPhone11ProMax(),
+    phoneFront: IPhone11ProMax().front(),
     colors: {
       'Camera Bump': Colors.white,
       'Back Panel': Colors.white,

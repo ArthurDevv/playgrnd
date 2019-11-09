@@ -4,6 +4,7 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 
 import 'iPhoneList.dart';
 
@@ -99,6 +100,12 @@ class IPhone11 extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Screen front() {
+    return Screen(
+      hasNotch: true,
     );
   }
 }

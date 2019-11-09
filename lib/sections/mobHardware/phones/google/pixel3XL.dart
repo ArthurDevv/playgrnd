@@ -4,14 +4,10 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/fingerprintSensor.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 
-class Pixel3XL extends StatefulWidget {
-  @override
-  _Pixel3XLState createState() => _Pixel3XLState();
-}
-
-class _Pixel3XLState extends State<Pixel3XL> {
+class Pixel3XL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color glossPanelColor = pixels[3].colors['Gloss Panel'];
@@ -113,6 +109,18 @@ class _Pixel3XLState extends State<Pixel3XL> {
           ],
         ),
       ),
+    );
+  }
+
+  Screen front() {
+    return Screen(
+      hasNotch: true,
+      bezelVertical: 40.0,
+      screenAlignment: Alignment(0.0, -0.6),
+      notchAlignment: Alignment(0.0, -1.0),
+      notchHeight: 35.0,
+      notchWidth: 100.0,
+      cornerRadius: 23.0,
     );
   }
 }

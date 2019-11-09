@@ -40,7 +40,8 @@ class PhoneStack extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => MobEditPage(
-                    phone: phoneList[currentPage.toInt()].phone,
+                    phoneBack: phoneList[currentPage.toInt()].phoneBack,
+                    phoneFront: phoneList[currentPage.toInt()].phoneFront,
                     phoneName: phoneList[currentPage.toInt()].phoneName,
                     colors: phoneList[currentPage.toInt()].colors,
                   ),
