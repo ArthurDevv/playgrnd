@@ -14,6 +14,7 @@ class Screen extends StatefulWidget {
   final String wallPaper;
   final Alignment screenAlignment, notchAlignment;
   final Color screenBezelColor;
+  final List<Widget> screenItems;
 
   const Screen({
     this.screenWidth = 250.0,
@@ -29,6 +30,7 @@ class Screen extends StatefulWidget {
     this.notchHeight = 25.0,
     this.innerCornerRadius,
     this.screenBezelColor = Colors.black,
+    this.screenItems,
   });
 
   @override
@@ -135,16 +137,9 @@ class _ScreenState extends State<Screen> {
               ),
             ),
             Center(
-              child: RaisedButton(
-                child: Text(
-                  'Press me',
-                  style: Theme.of(context).textTheme.body2,
-                ),
-                onPressed: () {
-                  setState(() {
-                    wallNum = Random().nextInt(10);
-                  });
-                },
+              child: Stack(
+                fit: StackFit.expand,
+                children: widget.screenItems ?? [],
               ),
             ),
           ],

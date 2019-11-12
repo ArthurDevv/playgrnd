@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CameraBump extends StatelessWidget {
-  final double width, height, cornerRadius, cameraBumpPartsPadding;
-  final Color cameraBumpColor, backPanelColor;
+  final double width, height, cornerRadius, cameraBumpPartsPadding, borderWidth;
+  final Color cameraBumpColor, backPanelColor, borderColor;
   final List<Widget> cameraBumpParts;
   final bool isMatte;
 
@@ -15,6 +15,8 @@ class CameraBump extends StatelessWidget {
     this.cameraBumpPartsPadding = 20.0,
     this.cornerRadius = 20.0,
     this.isMatte = false,
+    this.borderWidth = 0.0,
+    this.borderColor,
   });
 
   @override
@@ -25,6 +27,10 @@ class CameraBump extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(cornerRadius),
+          border: Border.all(
+            color: borderColor ?? Colors.transparent,
+            width: borderWidth,
+          ),
           color: cameraBumpColor,
           boxShadow: [
             BoxShadow(
@@ -33,7 +39,7 @@ class CameraBump extends StatelessWidget {
                   : Colors.black38,
               spreadRadius: 1.0,
               blurRadius: 3.0,
-            )
+            ),
           ]),
       child: FittedBox(
         child: Stack(

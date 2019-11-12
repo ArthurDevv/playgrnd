@@ -11,9 +11,11 @@ import 'iPhoneList.dart';
 class IPhone11 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color cameraBumpColor = iPhones[0].colors['Camera Bump'];
-    Color backPanelColor = iPhones[0].colors['Back Panel'];
-    Color logoColor = iPhones[0].colors['Apple Logo'];
+    int phoneListIndex = 14;
+
+    Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
+    Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
+    Color logoColor = iPhones[phoneListIndex].colors['Apple Logo'];
 
     CameraBump cameraBump = CameraBump(
       width: 100.0,
@@ -74,8 +76,8 @@ class IPhone11 extends StatelessWidget {
                 gradient: LinearGradient(
                   colors: [
                     Colors.transparent,
-                    cameraBumpColor.computeLuminance() > 0.335
-                        ? Colors.black.withOpacity(0.005)
+                    backPanelColor.computeLuminance() > 0.335
+                        ? Colors.black.withOpacity(0.019)
                         : Colors.black.withOpacity(0.025),
                   ],
                   stops: [0.2, 0.2],

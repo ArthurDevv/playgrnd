@@ -3,48 +3,55 @@ import 'package:playgrnd/customIcons/brand_icons_icons.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/iPhoneTextMarks.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 
-class IPhone11ProMax extends StatelessWidget {
+class IPhoneXSMax extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 15;
+    int phoneListIndex = 13;
 
     Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
     Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
     Color logoColor = iPhones[phoneListIndex].colors['Apple Logo'];
+    Color textMarksColor = iPhones[phoneListIndex].colors['Texts & Markings'];
+
+    Camera camera = Camera(
+      diameter: 20.0,
+      lenseDiameter: 6.0,
+      trimWidth: 3.0,
+      trimColor: Colors.grey[900],
+    );
 
     CameraBump cameraBump = CameraBump(
-      width: 100.0,
-      height: 100.0,
+      width: 35.0,
+      height: 80.0,
+      borderWidth: 1.5,
       cameraBumpColor: cameraBumpColor,
       backPanelColor: backPanelColor,
+      borderColor: Colors.grey[500],
+      cameraBumpPartsPadding: 0.0,
       cameraBumpParts: [
         Positioned(
-          left: 3.0,
-          top: 3.0,
-          child: Camera(),
+          left: 7.0,
+          top: 7.0,
+          child: camera,
         ),
         Positioned(
-          left: 3.0,
-          bottom: 3.0,
-          child: Camera(),
+          left: 7.0,
+          bottom: 7.0,
+          child: camera,
         ),
         Positioned(
-          right: 3.0,
-          top: 22.5,
-          child: Camera(),
-        ),
-        Positioned(
-          right: 12.0,
-          top: 4.0,
+          left: 10.0,
+          top: 33.0,
           child: Flash(diameter: 15.0),
         ),
         Positioned(
-          right: 17.0,
-          bottom: 9.0,
+          right: 4.0,
+          bottom: 27.0,
           child: Microphone(),
         ),
       ],
@@ -80,26 +87,31 @@ class IPhone11ProMax extends StatelessWidget {
                   colors: [
                     Colors.transparent,
                     backPanelColor.computeLuminance() > 0.335
-                        ? Colors.black12
-                        : Colors.black26
+                        ? Colors.black.withOpacity(0.019)
+                        : Colors.black.withOpacity(0.025),
                   ],
-                  begin: FractionalOffset(0.5, 0.0),
+                  stops: [0.2, 0.2],
+                  begin: FractionalOffset(0.7, 0.3),
                   end: FractionalOffset(0.0, 0.5),
                 ),
               ),
             ),
             Positioned(
-              top: 5.0,
-              left: 5.0,
+              top: 15.0,
+              left: 15.0,
               child: cameraBump,
             ),
             Align(
-              alignment: Alignment.center,
+              alignment: Alignment(0.0, -0.5),
               child: Icon(
                 BrandIcons.apple,
                 color: logoColor,
                 size: 60.0,
               ),
+            ),
+            Align(
+              alignment: Alignment(0.0, 0.6),
+              child: IPhoneTextMarks(color: textMarksColor),
             ),
           ],
         ),

@@ -134,8 +134,9 @@ class _MobEditPageState extends State<MobEditPage> {
     showDialog<Widget>(
       context: context,
       builder: (BuildContext context) => SimpleDialog(
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
         title: Text('Pick a color'),
         children: <Widget>[
           MaterialColorPicker(

@@ -12,6 +12,10 @@
 ///       - asset: fonts/BrandIcons.ttf
 ///
 /// 
+/// * Font Awesome, Copyright (C) 2016 by Dave Gandy
+///         Author:    Dave Gandy
+///         License:   SIL ()
+///         Homepage:  http://fortawesome.github.com/Font-Awesome/
 ///
 import 'package:flutter/widgets.dart';
 
@@ -22,5 +26,12 @@ class BrandIcons {
 
   static const IconData apple = const IconData(0xe800, fontFamily: _kFontFam);
   static const IconData huawei = const IconData(0xe801, fontFamily: _kFontFam);
-  static const IconData samsung = const IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData oneplus = const IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData samsung = const IconData(0xe804, fontFamily: _kFontFam);
+  static const IconData lg = const IconData(0xe805, fontFamily: _kFontFam);
+  static const IconData xiaomi = const IconData(0xe806, fontFamily: _kFontFam);
+  static const IconData nokia = const IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData htc = const IconData(0xe808, fontFamily: _kFontFam);
+  static const IconData motorola = const IconData(0xe809, fontFamily: _kFontFam);
+  static const IconData google = const IconData(0xf1a0, fontFamily: _kFontFam);
 }

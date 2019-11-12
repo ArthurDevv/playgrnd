@@ -1,6 +1,5 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:playgrnd/customIcons/brand_icons_icons.dart';
+import 'package:playgrnd/sections/mobHardware/data/brandTabs.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 import 'package:playgrnd/sections/mobHardware/widgets/phoneStack.dart';
@@ -13,7 +12,6 @@ class MobHardware extends StatefulWidget {
 }
 
 class _MobHardwareState extends State<MobHardware> {
-  TabController myTabController;
   double appleCurrentPage = iPhones.length - 1.0;
   double googleCurrentPage = pixels.length - 1.0;
 
@@ -24,17 +22,10 @@ class _MobHardwareState extends State<MobHardware> {
     PageController googleController =
         PageController(initialPage: googleCurrentPage.toInt());
 
-    appleController.addListener(() {
-      setState(() {
-        appleCurrentPage = appleController.page;
-      });
-    });
-
-    googleController.addListener(() {
-      setState(() {
-        googleCurrentPage = googleController.page;
-      });
-    });
+    appleController.addListener(
+        () => setState(() => appleCurrentPage = appleController.page));
+    googleController.addListener(
+        () => setState(() => googleCurrentPage = googleController.page));
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -53,11 +44,7 @@ class _MobHardwareState extends State<MobHardware> {
                 indicatorColor: Theme.of(context).brightness == Brightness.light
                     ? Colors.black
                     : Colors.white,
-                tabs: <Tab>[
-                  Tab(icon: Icon(BrandIcons.apple)),
-                  Tab(icon: Icon(EvaIcons.google)),
-                  Tab(icon: Icon(BrandIcons.huawei)),
-                ],
+                tabs: brandTabs,
                 contents: <Widget>[
                   PhoneStack(
                     controller: appleController,
@@ -69,7 +56,17 @@ class _MobHardwareState extends State<MobHardware> {
                     currentPage: googleCurrentPage,
                     phoneList: pixels,
                   ),
-                  Container(child: Text('NodeJS'), padding: EdgeInsets.all(20)),
+                  Container(
+                      child: Text('Samsung'), padding: EdgeInsets.all(20)),
+                  Container(child: Text('Huawei'), padding: EdgeInsets.all(20)),
+                  Container(
+                      child: Text('OnePlus'), padding: EdgeInsets.all(20)),
+                  Container(child: Text('Xiaomi'), padding: EdgeInsets.all(20)),
+                  Container(child: Text('htc'), padding: EdgeInsets.all(20)),
+                  Container(child: Text('LG'), padding: EdgeInsets.all(20)),
+                  Container(
+                      child: Text('Motorola'), padding: EdgeInsets.all(20)),
+                  Container(child: Text('Nokia'), padding: EdgeInsets.all(20)),
                 ],
               ),
             ),

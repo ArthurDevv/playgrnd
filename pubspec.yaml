@@ -73,6 +73,9 @@ flutter:
     - family: BrandIcons
       fonts:
         - asset: assets/fonts/BrandIcons.ttf
+    - family: CustomIcons
+      fonts:
+        - asset: assets/fonts/CustomIcons.ttf
         
   #   - family: Trajan Pro
   #     fonts:

@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 class Camera extends StatelessWidget {
   final double diameter, trimWidth, lenseDiameter;
-  final Color trimColor;
+  final Color trimColor, backPanelColor;
+  final bool hasElevation;
 
   const Camera({
     this.diameter = 35.0,
     this.trimWidth = 5.0,
     this.lenseDiameter = 10.0,
     this.trimColor,
+    this.hasElevation = false,
+    this.backPanelColor = Colors.black,
   });
 
   @override
@@ -23,6 +26,17 @@ class Camera extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: trimColor ?? Colors.grey[400],
+            boxShadow: hasElevation
+                ? [
+                    BoxShadow(
+                      color: backPanelColor.computeLuminance() > 0.335
+                          ? Colors.black26
+                          : Colors.black38,
+                      spreadRadius: 1.0,
+                      blurRadius: 3.0,
+                    )
+                  ]
+                : null,
           ),
           child: Stack(
             alignment: Alignment.center,

@@ -1,54 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:playgrnd/customIcons/brand_icons_icons.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
-import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/iPhoneTextMarks.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 
-class IPhone11ProMax extends StatelessWidget {
+class IPhoneXR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 15;
+    int phoneListIndex = 12;
 
-    Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
     Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
     Color logoColor = iPhones[phoneListIndex].colors['Apple Logo'];
-
-    CameraBump cameraBump = CameraBump(
-      width: 100.0,
-      height: 100.0,
-      cameraBumpColor: cameraBumpColor,
-      backPanelColor: backPanelColor,
-      cameraBumpParts: [
-        Positioned(
-          left: 3.0,
-          top: 3.0,
-          child: Camera(),
-        ),
-        Positioned(
-          left: 3.0,
-          bottom: 3.0,
-          child: Camera(),
-        ),
-        Positioned(
-          right: 3.0,
-          top: 22.5,
-          child: Camera(),
-        ),
-        Positioned(
-          right: 12.0,
-          top: 4.0,
-          child: Flash(diameter: 15.0),
-        ),
-        Positioned(
-          right: 17.0,
-          bottom: 9.0,
-          child: Microphone(),
-        ),
-      ],
-    );
+    Color textMarksColor = iPhones[phoneListIndex].colors['iPhone Text'];
 
     return FittedBox(
       child: AnimatedContainer(
@@ -80,25 +46,50 @@ class IPhone11ProMax extends StatelessWidget {
                   colors: [
                     Colors.transparent,
                     backPanelColor.computeLuminance() > 0.335
-                        ? Colors.black12
-                        : Colors.black26
+                        ? Colors.black.withOpacity(0.019)
+                        : Colors.black.withOpacity(0.025),
                   ],
-                  begin: FractionalOffset(0.5, 0.0),
+                  stops: [0.2, 0.2],
+                  begin: FractionalOffset(0.7, 0.3),
                   end: FractionalOffset(0.0, 0.5),
                 ),
               ),
             ),
             Positioned(
-              top: 5.0,
-              left: 5.0,
-              child: cameraBump,
+              top: 15.0,
+              left: 15.0,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Camera(
+                    diameter: 40.0,
+                    lenseDiameter: 10.0,
+                    trimWidth: 4.0,
+                    trimColor: Colors.grey[500],
+                    hasElevation: true,
+                    backPanelColor: backPanelColor,
+                  ),
+                  SizedBox(height: 8.0),
+                  Microphone(),
+                  SizedBox(height: 8.0),
+                  Flash(diameter: 15.0),
+                ],
+              ),
             ),
             Align(
-              alignment: Alignment.center,
+              alignment: Alignment(0.0, -0.5),
               child: Icon(
                 BrandIcons.apple,
                 color: logoColor,
                 size: 60.0,
+              ),
+            ),
+            Align(
+              alignment: Alignment(0.0, 0.6),
+              child: IPhoneTextMarks(
+                color: textMarksColor,
+                ceMarkings: false,
+                designedByText: false,
               ),
             ),
           ],
@@ -110,6 +101,8 @@ class IPhone11ProMax extends StatelessWidget {
   Screen front() {
     return Screen(
       hasNotch: true,
+      bezelHorizontal: 20.0,
+      bezelVertical: 20.0,
     );
   }
 }
