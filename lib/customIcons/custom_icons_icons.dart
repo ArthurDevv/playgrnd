@@ -21,5 +21,7 @@ class CustomIcons {
   static const _kFontFam = 'CustomIcons';
 
   static const IconData ce = const IconData(0xe800, fontFamily: _kFontFam);
+  static const IconData turtoise = const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData hare = const IconData(0xe802, fontFamily: _kFontFam);
   static const IconData weee = const IconData(0xe803, fontFamily: _kFontFam);
 }

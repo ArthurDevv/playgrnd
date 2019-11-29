@@ -11,7 +11,7 @@ import 'iPhoneList.dart';
 class IPhone11 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 14;
+    int phoneListIndex = 4;
 
     Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
     Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
@@ -108,6 +108,9 @@ class IPhone11 extends StatelessWidget {
   Screen front() {
     return Screen(
       hasNotch: true,
+      phoneBrand: 'Apple',
+      phoneModel: 'iPhone',
+      phoneName: 'iPhone 11',
     );
   }
 }

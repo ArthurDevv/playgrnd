@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playgrnd/utils/constants.dart';
 
 class ColorPickerButton extends StatelessWidget {
   final String colorName;
@@ -13,7 +14,7 @@ class ColorPickerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Brightness brightness = Theme.of(context).brightness;
+    Brightness brightness = kThemeBrightness(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

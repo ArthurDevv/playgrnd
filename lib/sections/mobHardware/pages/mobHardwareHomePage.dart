@@ -3,6 +3,7 @@ import 'package:playgrnd/sections/mobHardware/data/brandTabs.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 import 'package:playgrnd/sections/mobHardware/widgets/phoneStack.dart';
+import 'package:playgrnd/utils/constants.dart';
 import 'package:playgrnd/widgets/searchBar.dart';
 import 'package:playgrnd/widgets/vertTabs.dart';
 
@@ -35,26 +36,28 @@ class _MobHardwareState extends State<MobHardware> {
       ),
       body: Column(
         children: <Widget>[
-          SearchBar(),
+          SearchBar(
+            hint: 'Look for a phone',
+          ),
           Expanded(
             child: Container(
               // color: Colors.teal,
               child: VerticalTabs(
                 contentScrollAxis: Axis.vertical,
-                indicatorColor: Theme.of(context).brightness == Brightness.light
+                indicatorColor: kThemeBrightness(context) == Brightness.light
                     ? Colors.black
                     : Colors.white,
                 tabs: brandTabs,
                 contents: <Widget>[
                   PhoneStack(
-                    controller: appleController,
-                    currentPage: appleCurrentPage,
-                    phoneList: iPhones,
-                  ),
-                  PhoneStack(
                     controller: googleController,
                     currentPage: googleCurrentPage,
                     phoneList: pixels,
+                  ),
+                  PhoneStack(
+                    controller: appleController,
+                    currentPage: appleCurrentPage,
+                    phoneList: iPhones,
                   ),
                   Container(
                       child: Text('Samsung'), padding: EdgeInsets.all(20)),

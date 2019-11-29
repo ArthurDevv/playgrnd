@@ -1,5 +1,5 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:playgrnd/customIcons/brand_icons_icons.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/fingerprintSensor.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
@@ -10,10 +10,13 @@ import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 class Pixel2XL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color glossPanelColor = pixels[2].colors['Gloss Panel'];
-    Color mattePanelColor = pixels[2].colors['Matte Panel'];
-    Color fingerprintSensorColor = pixels[2].colors['Fingerprint Sensor'];
-    Color logoColor = pixels[2].colors['Google Logo'];
+    int phoneListIndex = 2;
+
+    Color glossPanelColor = pixels[phoneListIndex].colors['Gloss Panel'];
+    Color mattePanelColor = pixels[phoneListIndex].colors['Matte Panel'];
+    Color fingerprintSensorColor =
+        pixels[phoneListIndex].colors['Fingerprint Sensor'];
+    Color logoColor = pixels[phoneListIndex].colors['Google Logo'];
 
     return FittedBox(
       child: AnimatedContainer(
@@ -83,7 +86,7 @@ class Pixel2XL extends StatelessWidget {
                         child: SizedBox(),
                       ),
                       Icon(
-                        EvaIcons.google,
+                        BrandIcons.google,
                         color: logoColor,
                         size: 30.0,
                       ),
@@ -129,6 +132,9 @@ class Pixel2XL extends StatelessWidget {
       notchHeight: 35.0,
       notchWidth: 100.0,
       cornerRadius: 23.0,
+      phoneBrand: 'Google',
+      phoneModel: 'Pixel',
+      phoneName: 'Pixel 2 XL',
     );
   }
 }

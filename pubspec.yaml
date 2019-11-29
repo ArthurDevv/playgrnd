@@ -23,8 +23,11 @@ dependencies:
   flutter_material_color_picker: ^1.0.3
   toast: ^0.1.5
   eva_icons_flutter: ^2.0.0
-  outline_material_icons: ^0.1.0
+  line_awesome_icons: ^1.0.4+2
   flip_card: ^0.4.4
+  file_picker: ^1.4.2
+  http: ^0.12.0+2
+  fonoapi_dart: ^0.1.2+2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

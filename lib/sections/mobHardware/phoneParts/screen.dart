@@ -1,5 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'dart:math';
+// import 'dart:math';
+
+import 'package:playgrnd/sections/mobHardware/widgets/specsScreen.dart';
+import 'package:playgrnd/utils/constants.dart';
 
 class Screen extends StatefulWidget {
   final double screenWidth,
@@ -11,7 +16,7 @@ class Screen extends StatefulWidget {
       notchWidth,
       notchHeight;
   final bool hasNotch;
-  final String wallPaper;
+  final String wallPaper, phoneBrand, phoneModel, phoneName;
   final Alignment screenAlignment, notchAlignment;
   final Color screenBezelColor;
   final List<Widget> screenItems;
@@ -31,6 +36,9 @@ class Screen extends StatefulWidget {
     this.innerCornerRadius,
     this.screenBezelColor = Colors.black,
     this.screenItems,
+    this.phoneBrand,
+    this.phoneModel,
+    this.phoneName,
   });
 
   @override
@@ -40,7 +48,7 @@ class Screen extends StatefulWidget {
 class _ScreenState extends State<Screen> {
   @override
   Widget build(BuildContext context) {
-    int wallNum = Random().nextInt(9);
+    // int wallNum = Random().nextInt(9);
 
     return FittedBox(
       //Screen frame
@@ -77,12 +85,14 @@ class _ScreenState extends State<Screen> {
                         ? widget.innerCornerRadius
                         : widget.cornerRadius - 5.0,
                   ),
-                  color: Colors.black,
-                  image: DecorationImage(
-                    image: AssetImage(widget.wallPaper ??
-                        'assets/images/wallpapers/wall$wallNum.jpg'),
-                    fit: BoxFit.fill,
-                  ),
+                  color: kThemeBrightness(context) == Brightness.light
+                      ? Colors.white
+                      : Colors.grey[900],
+                  // image: DecorationImage(
+                  //   image: AssetImage(widget.wallPaper ??
+                  //       'assets/images/wallpapers/wall$wallNum.jpg'),
+                  //   fit: BoxFit.fill,
+                  // ),
                 ),
               ),
             ),
@@ -116,30 +126,58 @@ class _ScreenState extends State<Screen> {
                     ),
                   )
                 : Container(),
-            Align(
-              alignment: widget.screenAlignment,
-              //Gloss Effect
-              child: Container(
-                width: 235.0,
-                height: 485.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25.0),
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.transparent,
-                      Colors.black.withOpacity(0.025),
-                    ],
-                    stops: [0.2, 0.2],
-                    begin: FractionalOffset(0.5, 0.3),
-                    end: FractionalOffset(0.0, 0.5),
-                  ),
-                ),
-              ),
-            ),
+            // Align(
+            //   alignment: widget.screenAlignment,
+            //   //Gloss Effect
+            //   child: Container(
+            //     width: 235.0,
+            //     height: 485.0,
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(25.0),
+            //       gradient: LinearGradient(
+            //         colors: [
+            //           Colors.transparent,
+            //           Colors.black.withOpacity(0.025),
+            //         ],
+            //         stops: [0.2, 0.2],
+            //         begin: FractionalOffset(0.5, 0.3),
+            //         end: FractionalOffset(0.0, 0.5),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Center(
               child: Stack(
                 fit: StackFit.expand,
                 children: widget.screenItems ?? [],
+              ),
+            ),
+            Align(
+              alignment: widget.screenAlignment,
+              heightFactor: widget.bezelVertical,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  widget.innerCornerRadius != null
+                      ? widget.innerCornerRadius
+                      : widget.cornerRadius - 5.0,
+                ),
+                child: Container(
+                  width: widget.screenWidth - widget.bezelHorizontal,
+                  height: widget.screenHeight - widget.bezelVertical,
+                  decoration: BoxDecoration(
+                    border: widget.screenBezelColor == Colors.white
+                        ? Border.all(
+                            color: Colors.grey[300],
+                            width: 1.0,
+                          )
+                        : null,
+                  ),
+                  child: SpecsScreen(
+                    phoneBrand: widget.phoneBrand,
+                    phoneModel: widget.phoneModel,
+                    phoneName: widget.phoneName,
+                  ),
+                ),
               ),
             ),
           ],

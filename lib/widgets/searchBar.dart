@@ -1,7 +1,12 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:playgrnd/utils/constants.dart';
 
 class SearchBar extends StatelessWidget {
+  final String hint;
+
+  const SearchBar({this.hint});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,18 +14,17 @@ class SearchBar extends StatelessWidget {
       child: Theme(
         data: ThemeData(
           hintColor: Colors.transparent,
-          brightness: Theme.of(context).brightness,
+          brightness: kThemeBrightness(context),
         ),
         child: TextField(
           decoration: InputDecoration(
-            hintText: 'Look for a phone',
+            hintText: hint,
             hintStyle: TextStyle(
-              color: Theme.of(context).brightness == Brightness.light
+              color: kThemeBrightness(context) == Brightness.light
                   ? Colors.black87
                   : Colors.white70,
               fontSize: 14,
             ),
-            // fillColor: Theme,
             filled: true,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
@@ -41,7 +45,7 @@ class SearchBar extends StatelessWidget {
               onTap: () {},
               child: Icon(
                 EvaIcons.search,
-                color: Theme.of(context).brightness == Brightness.light
+                color: kThemeBrightness(context) == Brightness.light
                     ? Colors.black87
                     : Colors.white70,
                 size: 15,

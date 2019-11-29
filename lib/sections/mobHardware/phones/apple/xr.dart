@@ -10,7 +10,7 @@ import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 class IPhoneXR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 12;
+    int phoneListIndex = 2;
 
     Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
     Color logoColor = iPhones[phoneListIndex].colors['Apple Logo'];
@@ -103,6 +103,9 @@ class IPhoneXR extends StatelessWidget {
       hasNotch: true,
       bezelHorizontal: 20.0,
       bezelVertical: 20.0,
+      phoneBrand: 'Apple',
+      phoneModel: 'iPhone',
+      phoneName: 'iPhone XR',
     );
   }
 }

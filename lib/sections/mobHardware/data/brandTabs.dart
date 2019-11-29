@@ -5,16 +5,16 @@ import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 import 'package:playgrnd/sections/mobHardware/widgets/phoneStack.dart';
 
 List<Tab> brandTabs = [
-  Tab(icon: Icon(BrandIcons.apple)),
   Tab(icon: Icon(BrandIcons.google)),
+  Tab(icon: Icon(BrandIcons.apple)),
   Tab(icon: Icon(BrandIcons.samsung)),
   Tab(icon: Icon(BrandIcons.huawei)),
   Tab(icon: Icon(BrandIcons.oneplus)),
   Tab(icon: Icon(BrandIcons.xiaomi)),
-  Tab(icon: Icon(BrandIcons.htc, size: 16.0)),
+  Tab(icon: Icon(BrandIcons.htc)),
   Tab(icon: Icon(BrandIcons.lg)),
   Tab(icon: Icon(BrandIcons.motorola)),
-  Tab(icon: Icon(BrandIcons.nokia)),
+  Tab(icon: Icon(BrandIcons.nokia, size: 30.0)),
 ];
 
 double appleCurrentPage = iPhones.length - 1.0;

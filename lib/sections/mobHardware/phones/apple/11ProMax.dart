@@ -10,7 +10,7 @@ import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 class IPhone11ProMax extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 15;
+    int phoneListIndex = 5;
 
     Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
     Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
@@ -110,6 +110,9 @@ class IPhone11ProMax extends StatelessWidget {
   Screen front() {
     return Screen(
       hasNotch: true,
+      phoneBrand: 'Apple',
+      phoneModel: 'iPhone',
+      phoneName: 'iPhone 11 Pro Max',
     );
   }
 }

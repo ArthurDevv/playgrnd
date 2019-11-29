@@ -1,5 +1,5 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:playgrnd/customIcons/brand_icons_icons.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/fingerprintSensor.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
@@ -10,11 +10,14 @@ import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 class PixelXL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color glossPanelColor = pixels[0].colors['Gloss Panel'];
-    Color mattePanelColor = pixels[0].colors['Matte Panel'];
-    Color fingerprintSensorColor = pixels[0].colors['Fingerprint Sensor'];
-    Color logoColor = pixels[0].colors['Google Logo'];
-    Color antennaBandsColor = pixels[0].colors['Antenna Bands'];
+    int phoneListIndex = 0;
+
+    Color glossPanelColor = pixels[phoneListIndex].colors['Gloss Panel'];
+    Color mattePanelColor = pixels[phoneListIndex].colors['Matte Panel'];
+    Color fingerprintSensorColor =
+        pixels[phoneListIndex].colors['Fingerprint Sensor'];
+    Color logoColor = pixels[phoneListIndex].colors['Google Logo'];
+    Color antennaBandsColor = pixels[phoneListIndex].colors['Antenna Bands'];
 
     return FittedBox(
       child: AnimatedContainer(
@@ -50,7 +53,7 @@ class PixelXL extends StatelessWidget {
                   child: Container(),
                 ),
                 Icon(
-                  EvaIcons.google,
+                  BrandIcons.google,
                   color: logoColor,
                   size: 30.0,
                 ),
@@ -127,6 +130,9 @@ class PixelXL extends StatelessWidget {
       notchWidth: 100.0,
       cornerRadius: 33.0,
       screenBezelColor: Colors.white,
+      phoneBrand: 'Google',
+      phoneModel: 'Pixel',
+      phoneName: 'Pixel XL',
     );
   }
 }

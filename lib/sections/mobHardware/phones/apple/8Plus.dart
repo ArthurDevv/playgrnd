@@ -9,23 +9,15 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 
-// Color frontBezels;
-// Color homeButton;
-
 class IPhone8Plus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 11;
+    int phoneListIndex = 1;
 
     Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
     Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
     Color logoColor = iPhones[phoneListIndex].colors['Apple Logo'];
     Color textMarksColor = iPhones[phoneListIndex].colors['iPhone Text'];
-    // Color frontBezelsColor = iPhones[phoneListIndex].colors['Front Bezels'];
-    // Color homeButtonColor = iPhones[phoneListIndex].colors['Home Button'];
-
-    // frontBezels = frontBezelsColor;
-    // homeButton = homeButtonColor;
 
     Camera camera = Camera(
       diameter: 20.0,
@@ -145,6 +137,9 @@ class IPhone8Plus extends StatelessWidget {
           ),
         ),
       ],
+      phoneBrand: 'Apple',
+      phoneModel: 'iPhone',
+      phoneName: 'iPhone 8 Plus',
     );
   }
 }

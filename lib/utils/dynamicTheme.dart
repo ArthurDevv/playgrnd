@@ -67,7 +67,7 @@ class DynamicThemeState extends State<DynamicTheme>
         setState(() {
           SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
-            systemNavigationBarColor: dark ? Colors.grey[900] : Colors.white,
+            systemNavigationBarColor: dark ? Colors.black : Colors.white,
             systemNavigationBarIconBrightness:
                 dark ? Brightness.light : Brightness.dark,
           ));
@@ -91,7 +91,7 @@ class DynamicThemeState extends State<DynamicTheme>
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
           systemNavigationBarColor:
-              brightness == Brightness.dark ? Colors.grey[900] : Colors.white,
+              brightness == Brightness.dark ? Colors.black : Colors.white,
           systemNavigationBarIconBrightness: brightness == Brightness.dark
               ? Brightness.light
               : Brightness.dark,
@@ -183,8 +183,6 @@ class ThemeColors {
   ThemeColors.fromJson(Map json)
       : primary = json['primary'],
         accent = json['accent'];
-
-  
 }
 
 // class SharedPref {

@@ -1,5 +1,5 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:playgrnd/customIcons/brand_icons_icons.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
@@ -10,10 +10,12 @@ import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 class Pixel4XL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color backPanelColor = pixels[4].colors['Back Panel'];
-    Color cameraBumpColor = pixels[4].colors['Camera Bump'];
-    Color logoColor = pixels[4].colors['Google Logo'];
-    Color bezelColor = pixels[4].colors['Bezel'];
+    int phoneListIndex = 4;
+
+    Color backPanelColor = pixels[phoneListIndex].colors['Back Panel'];
+    Color cameraBumpColor = pixels[phoneListIndex].colors['Camera Bump'];
+    Color logoColor = pixels[phoneListIndex].colors['Google Logo'];
+    Color bezelColor = pixels[phoneListIndex].colors['Bezel'];
 
     Camera camera = Camera(
       diameter: 28.0,
@@ -100,7 +102,7 @@ class Pixel4XL extends StatelessWidget {
                     child: SizedBox(),
                   ),
                   Icon(
-                    EvaIcons.google,
+                    BrandIcons.google,
                     color: logoColor,
                     size: 30.0,
                   ),
@@ -123,6 +125,9 @@ class Pixel4XL extends StatelessWidget {
     return Screen(
       bezelVertical: 40.0,
       screenAlignment: Alignment(0.0, 0.6),
+      phoneBrand: 'Google',
+      phoneModel: 'Pixel',
+      phoneName: 'Pixel 4 XL',
     );
   }
 }

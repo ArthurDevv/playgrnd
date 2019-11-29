@@ -9,25 +9,35 @@ class MyThemeData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicTheme(
-        defaultPrimaryColor: Colors.grey[900],
-        defaultAccentColor: Colors.white,
+        defaultPrimaryColor: Colors.blue,
+        defaultAccentColor: Colors.blue,
         defaultBrightness: Brightness.dark,
         data: (primaryColor, accentColor, brightness) => ThemeData(
               primaryColor: primaryColor,
               accentColor: accentColor,
               brightness: brightness,
-              scaffoldBackgroundColor: brightness == Brightness.light
-                  ? Colors.white
-                  : Colors.grey[900],
+              scaffoldBackgroundColor:
+                  brightness == Brightness.light ? Colors.white : Colors.black,
               appBarTheme: AppBarTheme(
                 textTheme: TextTheme(
                   title: Theme.of(context).textTheme.title.copyWith(
                         fontFamily: 'Righteous',
                         fontSize: 26.0,
-                        color: primaryColor.computeLuminance() > 0.335
+                        color: brightness == Brightness.light
                             ? Colors.black
                             : Colors.white,
                       ),
+                ),
+                color: brightness == Brightness.light
+                    ? Colors.white
+                    : Colors.black,
+                brightness: brightness == Brightness.light
+                    ? Brightness.light
+                    : Brightness.dark,
+                iconTheme: IconThemeData(
+                  color: brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
                 ),
                 elevation: 0.0,
               ),
