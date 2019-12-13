@@ -1,21 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:playgrnd/customIcons/brand_icons_icons.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/backPanel.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
-import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 
 class Pixel4XL extends StatelessWidget {
+  static const String phoneBrand = 'Google';
+  static const String phoneModel = 'Pixel';
+  static const String phoneName = 'Pixel 4 XL';
+
+  static Map<String, Color> colors = {
+    'Camera Bump': Colors.black,
+    'Back Panel': Colors.deepOrange[500],
+    'Google Logo': Colors.deepOrange[500],
+    'Bezels': Colors.black,
+  };
+
+  final Screen front = Screen(
+    bezelVertical: 40.0,
+    screenAlignment: Alignment(0.0, 0.6),
+    phoneBrand: phoneBrand,
+    phoneModel: phoneModel,
+    phoneName: phoneName,
+  );
+
+  get getPhoneName => phoneName;
+  get getPhoneFront => front;
+  get getPhoneColors => colors;
+
+  set setPhoneColor(Color color) {
+    print(colors[colors.keys.elementAt(1)]);
+  }
+
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 4;
-
-    Color backPanelColor = pixels[phoneListIndex].colors['Back Panel'];
-    Color cameraBumpColor = pixels[phoneListIndex].colors['Camera Bump'];
-    Color logoColor = pixels[phoneListIndex].colors['Google Logo'];
-    Color bezelColor = pixels[phoneListIndex].colors['Bezel'];
+    Color cameraBumpColor = colors['Camera Bump'];
+    Color backPanelColor = colors['Back Panel'];
+    Color logoColor = colors['Google Logo'];
+    Color bezelColor = colors['Bezels'];
 
     Camera camera = Camera(
       diameter: 28.0,
@@ -59,26 +84,11 @@ class Pixel4XL extends StatelessWidget {
     );
 
     return FittedBox(
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        width: 240.0,
-        height: 480.0,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.0),
-            // color: backPanelColor,
-            border: Border.all(
-              color: bezelColor,
-              width: 4.0,
-            ),
-            color: backPanelColor,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                offset: Offset(5, 5),
-                spreadRadius: 2.0,
-                blurRadius: 10.0,
-              )
-            ]),
+      child: BackPanel(
+        cornerRadius: 30.0,
+        bezelWidth: 4.0,
+        backPanelColor: backPanelColor,
+        bezelColor: bezelColor,
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
@@ -118,16 +128,6 @@ class Pixel4XL extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Screen front() {
-    return Screen(
-      bezelVertical: 40.0,
-      screenAlignment: Alignment(0.0, 0.6),
-      phoneBrand: 'Google',
-      phoneModel: 'Pixel',
-      phoneName: 'Pixel 4 XL',
     );
   }
 }

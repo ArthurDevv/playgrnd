@@ -26,8 +26,9 @@ class BrandIcons {
 
   static const IconData apple = const IconData(0xe800, fontFamily: _kFontFam);
   static const IconData huawei = const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData samsung2 = const IconData(0xe802, fontFamily: _kFontFam);
   static const IconData oneplus = const IconData(0xe803, fontFamily: _kFontFam);
-  static const IconData samsung = const IconData(0xe804, fontFamily: _kFontFam);
+  static const IconData samsung1 = const IconData(0xe804, fontFamily: _kFontFam);
   static const IconData lg = const IconData(0xe805, fontFamily: _kFontFam);
   static const IconData xiaomi = const IconData(0xe806, fontFamily: _kFontFam);
   static const IconData nokia = const IconData(0xe807, fontFamily: _kFontFam);

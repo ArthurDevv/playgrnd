@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playgrnd/customIcons/brand_icons_icons.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/backPanel.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/cameraBump.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
@@ -7,17 +8,47 @@ import 'package:playgrnd/sections/mobHardware/phoneParts/iPhoneHomeButton.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/iPhoneTextMarks.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
-import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 
 class IPhone8Plus extends StatelessWidget {
+  static const String phoneBrand = 'Apple';
+  static const String phoneModel = 'iPhone';
+  static const String phoneName = 'iPhone 8 Plus';
+
+  static Map<String, Color> colors = {
+    'Camera Bump': Colors.black,
+    'Back Panel': Colors.pink[100],
+    'Apple Logo': Colors.black,
+    'iPhone Text': Colors.black,
+  };
+
+  final Screen front = Screen(
+    bezelHorizontal: 15.0,
+    bezelVertical: 120.0,
+    innerCornerRadius: 0.0,
+    screenBezelColor: Colors.white,
+    screenItems: <Widget>[
+      Align(
+        alignment: Alignment(0.0, 0.96),
+        child: IPhoneHomeButton(
+          buttonColor: Colors.white,
+        ),
+      ),
+    ],
+    phoneBrand: phoneBrand,
+    phoneModel: phoneModel,
+    phoneName: phoneName,
+  );
+
+  get getPhoneName => phoneName;
+  get getPhoneFront => front;
+  get getPhoneColors => colors;
+
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 1;
-
-    Color cameraBumpColor = iPhones[phoneListIndex].colors['Camera Bump'];
-    Color backPanelColor = iPhones[phoneListIndex].colors['Back Panel'];
-    Color logoColor = iPhones[phoneListIndex].colors['Apple Logo'];
-    Color textMarksColor = iPhones[phoneListIndex].colors['iPhone Text'];
+    Color cameraBumpColor = colors['Camera Bump'];
+    Color backPanelColor = colors['Back Panel'];
+    Color logoColor = colors['Apple Logo'];
+    Color textMarksColor = colors['iPhone Text'];
 
     Camera camera = Camera(
       diameter: 20.0,
@@ -49,24 +80,12 @@ class IPhone8Plus extends StatelessWidget {
     );
 
     return FittedBox(
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+      child: BackPanel(
         width: 250.0,
         height: 500.0,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.0),
-            border: Border.all(
-              color: backPanelColor,
-            ),
-            color: backPanelColor,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                offset: Offset(5, 5),
-                spreadRadius: 2.0,
-                blurRadius: 10.0,
-              )
-            ]),
+        cornerRadius: 30.0,
+        backPanelColor: backPanelColor,
+        bezelColor: backPanelColor,
         child: Stack(
           children: <Widget>[
             Container(
@@ -120,26 +139,6 @@ class IPhone8Plus extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Screen front() {
-    return Screen(
-      bezelHorizontal: 15.0,
-      bezelVertical: 120.0,
-      innerCornerRadius: 0.0,
-      screenBezelColor: Colors.white,
-      screenItems: <Widget>[
-        Align(
-          alignment: Alignment(0.0, 0.96),
-          child: IPhoneHomeButton(
-            buttonColor: Colors.white,
-          ),
-        ),
-      ],
-      phoneBrand: 'Apple',
-      phoneModel: 'iPhone',
-      phoneName: 'iPhone 8 Plus',
     );
   }
 }

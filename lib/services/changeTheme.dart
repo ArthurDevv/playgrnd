@@ -87,6 +87,7 @@ void changeBrightness(BuildContext context, Brightness brightness) async {
   prefs.setBool(_brightnessKey, brightness == Brightness.light ? false : true);
 
   DynamicTheme.of(context).setBrightness(brightness);
+  DynamicTheme.of(context).setPrimaryColor(brightness == Brightness.light ? Colors.white : Colors.black);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
         brightness == Brightness.light ? Colors.white : Colors.black,

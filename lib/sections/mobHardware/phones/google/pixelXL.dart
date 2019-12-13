@@ -1,43 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:playgrnd/customIcons/brand_icons_icons.dart';
+import 'package:playgrnd/sections/mobHardware/phoneParts/backPanel.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/camera.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/fingerprintSensor.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/flash.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/microphone.dart';
 import 'package:playgrnd/sections/mobHardware/phoneParts/screen.dart';
-import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
 
 class PixelXL extends StatelessWidget {
+  static const String phoneBrand = 'Google';
+  static const String phoneModel = 'Pixel';
+  static const String phoneName = 'Pixel XL';
+
+  static Map<String, Color> colors = {
+    'Gloss Panel': Colors.white,
+    'Matte Panel': Colors.grey[300],
+    'Fingerprint Sensor': Colors.white,
+    'Google Logo': Colors.grey[400],
+    'Antenna Bands': Colors.white,
+  };
+
+  final Screen front = Screen(
+    bezelVertical: 120.0,
+    innerCornerRadius: 0.0,
+    screenAlignment: Alignment.center,
+    notchAlignment: Alignment(0.0, -1.0),
+    notchHeight: 35.0,
+    notchWidth: 100.0,
+    cornerRadius: 33.0,
+    screenBezelColor: Colors.white,
+    phoneBrand: phoneBrand,
+    phoneModel: phoneModel,
+    phoneName: phoneName,
+  );
+
+  get getPhoneName => phoneName;
+  get getPhoneFront => front;
+  get getPhoneColors => colors;
+
   @override
   Widget build(BuildContext context) {
-    int phoneListIndex = 0;
-
-    Color glossPanelColor = pixels[phoneListIndex].colors['Gloss Panel'];
-    Color mattePanelColor = pixels[phoneListIndex].colors['Matte Panel'];
-    Color fingerprintSensorColor =
-        pixels[phoneListIndex].colors['Fingerprint Sensor'];
-    Color logoColor = pixels[phoneListIndex].colors['Google Logo'];
-    Color antennaBandsColor = pixels[phoneListIndex].colors['Antenna Bands'];
+    Color glossPanelColor = colors['Gloss Panel'];
+    Color mattePanelColor = colors['Matte Panel'];
+    Color fingerprintSensorColor = colors['Fingerprint Sensor'];
+    Color logoColor = colors['Google Logo'];
+    Color antennaBandsColor = colors['Antenna Bands'];
 
     return FittedBox(
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        width: 240.0,
+      child: BackPanel(
         height: 470.0,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.0),
-            border: Border.all(
-              color: mattePanelColor,
-            ),
-            color: mattePanelColor,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                offset: Offset(5, 5),
-                spreadRadius: 2.0,
-                blurRadius: 10.0,
-              )
-            ]),
+        cornerRadius: 30.0,
+        backPanelColor: mattePanelColor,
+        bezelColor: mattePanelColor,
         child: Stack(
           children: <Widget>[
             Column(
@@ -117,22 +131,6 @@ class PixelXL extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Screen front() {
-    return Screen(
-      bezelVertical: 120.0,
-      innerCornerRadius: 0.0,
-      screenAlignment: Alignment.center,
-      notchAlignment: Alignment(0.0, -1.0),
-      notchHeight: 35.0,
-      notchWidth: 100.0,
-      cornerRadius: 33.0,
-      screenBezelColor: Colors.white,
-      phoneBrand: 'Google',
-      phoneModel: 'Pixel',
-      phoneName: 'Pixel XL',
     );
   }
 }

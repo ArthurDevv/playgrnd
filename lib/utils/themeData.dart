@@ -9,7 +9,7 @@ class MyThemeData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicTheme(
-        defaultPrimaryColor: Colors.blue,
+        defaultPrimaryColor: Colors.black,
         defaultAccentColor: Colors.blue,
         defaultBrightness: Brightness.dark,
         data: (primaryColor, accentColor, brightness) => ThemeData(

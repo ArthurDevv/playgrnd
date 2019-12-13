@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.playgrnd">
+    package="com.arthurdev.playgrnd">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -10,7 +10,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="playgrnd"
+        android:label="playgrnd."
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

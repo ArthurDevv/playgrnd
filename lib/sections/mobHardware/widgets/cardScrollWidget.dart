@@ -3,11 +3,18 @@ import 'package:flutter/material.dart';
 
 class CardScrollWidget extends StatelessWidget {
   final List phoneList;
-  final currentPage;
-  final padding = 30.0;
-  final verticalInset = 20.0;
+  final double currentPage;
+  final double padding;
+  final double verticalInset;
+  final int inset;
 
-  CardScrollWidget({this.currentPage, this.phoneList});
+  CardScrollWidget({
+    this.currentPage,
+    this.phoneList,
+    this.padding = 30.0,
+    this.verticalInset = 20.0,
+    this.inset = 3,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,7 @@ class CardScrollWidget extends StatelessWidget {
         var widthOfPrimaryCard = heightOfPrimaryCard * cardAspectRatio;
 
         var primaryCardLeft = safeWidth - widthOfPrimaryCard;
-        var horizontalInset = primaryCardLeft / 3;
+        var horizontalInset = primaryCardLeft / inset;
 
         List<Widget> cardList = List();
 
@@ -38,7 +45,7 @@ class CardScrollWidget extends StatelessWidget {
           var start = padding +
               max(
                   primaryCardLeft -
-                      horizontalInset * -delta * (isOnRight ? 30 : 1),
+                      horizontalInset * -delta * (isOnRight ? 40 : 1),
                   0.0);
 
           var cardItem = Positioned.directional(
@@ -47,8 +54,8 @@ class CardScrollWidget extends StatelessWidget {
             start: start,
             textDirection: TextDirection.rtl,
             child: Hero(
-              tag: phoneList[i].phoneName,
-              child: phoneList[i].phoneBack,
+              tag: phoneList[i],
+              child: phoneList[i],
             ),
           );
           cardList.add(cardItem);

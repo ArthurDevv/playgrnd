@@ -15,9 +15,6 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     ListTile selectColorTile({
       String title,
-      String subtitle,
-      Color color,
-      Function onPressed,
     }) {
       return ListTile(
         title: Text(
@@ -26,12 +23,37 @@ class _SettingsPageState extends State<SettingsPage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: Text(subtitle),
+        subtitle: Text('Select an ${title.toLowerCase()}'),
         trailing: CircleColor(
           circleSize: 50.0,
-          color: color,
+          color: title.contains('Primary')
+              ? kPrimaryColor(context)
+              : kAccentColor(context),
         ),
-        onTap: onPressed,
+        onTap: () {
+          setState(() {
+            title.contains('Primary')
+                ? changePrimaryColor(context, kPrimaryColor(context))
+                : changeAccentColor(context, kAccentColor(context));
+          });
+        },
+      );
+    }
+
+    ListTile selectBrightnessTile(String title, Brightness brightness) {
+      return ListTile(
+        title: Text(title),
+        trailing: kThemeBrightness(context) == brightness
+            ? Icon(
+                LineAwesomeIcons.check_circle,
+                color: kAccentColor(context),
+              )
+            : SizedBox(),
+        onTap: () {
+          setState(() {
+            changeBrightness(context, brightness);
+          });
+        },
       );
     }
 
@@ -46,25 +68,9 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            selectColorTile(
-                title: 'Primary Color',
-                subtitle: 'Select a primary color',
-                color: kPrimaryColor(context),
-                onPressed: () {
-                  setState(() {
-                    changePrimaryColor(context, kPrimaryColor(context));
-                  });
-                }),
-            SizedBox(height: 20.0),
-            selectColorTile(
-                title: 'Accent Color',
-                subtitle: 'Select a accent color',
-                color: kAccentColor(context),
-                onPressed: () {
-                  setState(() {
-                    changeAccentColor(context, kAccentColor(context));
-                  });
-                }),
+            // selectColorTile(title: 'Primary Color'),
+            // SizedBox(height: 20.0),
+            selectColorTile(title: 'Accent Color'),
             SizedBox(height: 20.0),
             ListTile(
               title: Text(
@@ -73,37 +79,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text('Select a theme'),
+              subtitle: Text('Select theme'),
             ),
-            ListTile(
-              title: Text('Light'),
-              trailing: kThemeBrightness(context) == Brightness.light
-                  ? Icon(
-                      LineAwesomeIcons.check_circle,
-                      color: kAccentColor(context),
-                    )
-                  : SizedBox(),
-              onTap: () {
-                setState(() {
-                  changeBrightness(context, Brightness.light);
-                });
-              },
-            ),
+            selectBrightnessTile('Light', Brightness.light),
             Divider(indent: 16.0),
-            ListTile(
-              title: Text('Black'),
-              trailing: kThemeBrightness(context) == Brightness.dark
-                  ? Icon(
-                      LineAwesomeIcons.check_circle,
-                      color: kAccentColor(context),
-                    )
-                  : SizedBox(),
-              onTap: () {
-                setState(() {
-                  changeBrightness(context, Brightness.dark);
-                });
-              },
-            ),
+            selectBrightnessTile('Black', Brightness.dark),
             Divider(indent: 16.0),
           ],
         ),

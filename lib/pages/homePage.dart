@@ -68,8 +68,9 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 10.0,
                       child: PageIndicator(
-                          currentSectionIndex: currentSectionIndex,
-                          pageController: pageController),
+                        currentSectionIndex: currentSectionIndex,
+                        pageController: pageController,
+                      ),
                     ),
                   ],
                 ),

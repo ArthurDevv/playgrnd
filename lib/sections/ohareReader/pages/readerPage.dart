@@ -11,6 +11,8 @@ import 'package:playgrnd/sections/ohareReader/widgets/customProgressBar.dart';
 import 'package:playgrnd/sections/ohareReader/widgets/topText.dart';
 import 'package:playgrnd/utils/constants.dart';
 
+// TODo - Pause text when the user minimzes or switches from the app
+
 class ReaderPage extends StatefulWidget {
   final String title;
   final String text;

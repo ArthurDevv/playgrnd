@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playgrnd/sections/mobHardware/data/brandTabs.dart';
 import 'package:playgrnd/sections/mobHardware/phones/apple/iPhoneList.dart';
 import 'package:playgrnd/sections/mobHardware/phones/google/pixelList.dart';
+import 'package:playgrnd/sections/mobHardware/phones/samsung/samsungList.dart';
 import 'package:playgrnd/sections/mobHardware/widgets/phoneStack.dart';
 import 'package:playgrnd/utils/constants.dart';
 import 'package:playgrnd/widgets/searchBar.dart';
@@ -13,20 +14,32 @@ class MobHardware extends StatefulWidget {
 }
 
 class _MobHardwareState extends State<MobHardware> {
-  double appleCurrentPage = iPhones.length - 1.0;
-  double googleCurrentPage = pixels.length - 1.0;
+  double appleCurrentPage = iPhoneList.length - 1.0;
+  double googleCurrentPage = pixelList.length - 1.0;
+  double samsungCurrentPage = samsungList.length - 1.0;
 
   @override
   Widget build(BuildContext context) {
     PageController appleController =
         PageController(initialPage: appleCurrentPage.toInt());
+
     PageController googleController =
         PageController(initialPage: googleCurrentPage.toInt());
 
+    PageController samsungController =
+        PageController(initialPage: samsungCurrentPage.toInt());
+
     appleController.addListener(
         () => setState(() => appleCurrentPage = appleController.page));
+
     googleController.addListener(
         () => setState(() => googleCurrentPage = googleController.page));
+
+    samsungController.addListener(() {
+      setState(() {
+        samsungCurrentPage = samsungController.page;
+      });
+    });
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -52,15 +65,18 @@ class _MobHardwareState extends State<MobHardware> {
                   PhoneStack(
                     controller: googleController,
                     currentPage: googleCurrentPage,
-                    phoneList: pixels,
+                    phoneList: pixelList,
                   ),
                   PhoneStack(
                     controller: appleController,
                     currentPage: appleCurrentPage,
-                    phoneList: iPhones,
+                    phoneList: iPhoneList,
                   ),
-                  Container(
-                      child: Text('Samsung'), padding: EdgeInsets.all(20)),
+                  PhoneStack(
+                    controller: samsungController,
+                    currentPage: samsungCurrentPage,
+                    phoneList: samsungList,
+                  ),
                   Container(child: Text('Huawei'), padding: EdgeInsets.all(20)),
                   Container(
                       child: Text('OnePlus'), padding: EdgeInsets.all(20)),

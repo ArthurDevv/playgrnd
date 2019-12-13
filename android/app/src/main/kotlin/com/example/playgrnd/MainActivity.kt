@@ -1,4 +1,4 @@
-package com.example.playgrnd
+package com.arthurdev.playgrnd
 
 import android.os.Bundle
 

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
@@ -39,7 +41,6 @@ class _SpecsScreenState extends State<SpecsScreen> {
   @override
   void initState() {
     super.initState();
-    print(page);
     pageController = PageController(
       initialPage: page,
     );
@@ -53,6 +54,8 @@ class _SpecsScreenState extends State<SpecsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int randomInt = Random().nextInt(10);
+
     return Container(
       child: PageView(
         controller: pageController,
@@ -74,16 +77,12 @@ class _SpecsScreenState extends State<SpecsScreen> {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(
-                      LineAwesomeIcons.frown_o,
-                      size: 100.0,
-                      color: Colors.grey[400],
-                    ),
+                    CircleAccentButton(LineAwesomeIcons.cloud, randomInt),
                     SizedBox(height: 8.0),
                     Text(
                       'No Data',
                       style: TextStyle(
-                        color: Colors.grey[400],
+                        color: Colors.grey[500],
                         fontFamily: 'Quicksand',
                         fontWeight: FontWeight.bold,
                       ),

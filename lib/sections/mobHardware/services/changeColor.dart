@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 
 void changeColor(
-    BuildContext context, Map colors, String side, Color selectedColor, int i) {
+  BuildContext context,
+  Map colors,
+  String side,
+  Color selectedColor,
+  int i,
+) {
   Color colorPicked;
 
   showDialog<Widget>(
