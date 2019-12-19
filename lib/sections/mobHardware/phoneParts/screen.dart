@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:playgrnd/sections/mobHardware/widgets/specsScreen.dart';
+import 'package:mobware/widgets/phone_parts/widgets/specsScreen.dart';
 import 'package:playgrnd/utils/constants.dart';
 
 class Screen extends StatefulWidget {

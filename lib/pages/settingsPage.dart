@@ -23,7 +23,7 @@ class _SettingsPageState extends State<SettingsPage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: Text('Select an ${title.toLowerCase()}'),
+        subtitle: Text('Select ${title.toLowerCase()}'),
         trailing: CircleColor(
           circleSize: 50.0,
           color: title.contains('Primary')

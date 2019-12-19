@@ -31,7 +31,7 @@ class PhoneSpecs {
           ];
         }
 
-        print(specsList);
+        // print(specsList);
 
         return specsList;
       });

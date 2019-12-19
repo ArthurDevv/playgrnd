@@ -11,7 +11,7 @@ class MyThemeData extends StatelessWidget {
     return DynamicTheme(
         defaultPrimaryColor: Colors.black,
         defaultAccentColor: Colors.blue,
-        defaultBrightness: Brightness.dark,
+        defaultBrightness: Brightness.light,
         data: (primaryColor, accentColor, brightness) => ThemeData(
               primaryColor: primaryColor,
               accentColor: accentColor,

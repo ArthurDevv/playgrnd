@@ -13,45 +13,37 @@ class _OhareReaderState extends State<OhareReader> {
 
   @override
   Widget build(BuildContext context) {
-    Brightness brightness = kThemeBrightness(context);
     Color accentColor = Theme.of(context).accentColor;
 
     return Scaffold(
       appBar: AppBar(
-        // title: Text('Oharé Reader'),
-        // centerTitle: true,
-        backgroundColor:
-            brightness == Brightness.light ? Colors.white : Colors.black,
-        iconTheme: IconThemeData(
-          color: brightness == Brightness.light ? Colors.black : Colors.white,
-        ),
-        brightness:
-            brightness == Brightness.light ? Brightness.light : Brightness.dark,
+        title: Text('Oharé Reader'),
+        centerTitle: true,
       ),
       body: SizedBox.expand(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: kScreenAwareSize(200.0, context),
-              height: kScreenAwareSize(200.0, context),
-              decoration: BoxDecoration(
-                color: accentColor,
-                borderRadius: BorderRadius.circular(50.0),
-                image: DecorationImage(
-                  image: AssetImage('assets/images/ohare.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-            SizedBox(height: 30.0),
-            Text(
-              'Oharé Reader',
-              style: TextStyle(
-                fontSize: 48.0,
-                fontFamily: 'Righteous',
-              ),
-            ),
+            // Container(
+            //   width: kScreenAwareSize(200.0, context),
+            //   height: kScreenAwareSize(200.0, context),
+            //   decoration: BoxDecoration(
+            //     color: accentColor,
+            //     borderRadius: BorderRadius.circular(50.0),
+            //     image: DecorationImage(
+            //       image: AssetImage('assets/images/ohare.png'),
+            //       fit: BoxFit.fill,
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(height: 30.0),
+            // Text(
+            //   'Oharé Reader',
+            //   style: TextStyle(
+            //     fontSize: 48.0,
+            //     fontFamily: 'Righteous',
+            //   ),
+            // ),
             SizedBox(height: 16.0),
             Container(
               width: MediaQuery.of(context).size.width * 0.8,
@@ -119,6 +111,22 @@ class _OhareReaderState extends State<OhareReader> {
               },
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 1.0,
+        child: Container(
+          // height: ,
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: InkWell(
+                  child: Icon(Icons.cake),
+                  onTap: () {},
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

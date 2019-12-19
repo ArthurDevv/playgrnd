@@ -35,11 +35,11 @@ class _MobHardwareState extends State<MobHardware> {
     googleController.addListener(
         () => setState(() => googleCurrentPage = googleController.page));
 
-    samsungController.addListener(() {
-      setState(() {
+    samsungController.addListener(() =>
+      setState(() =>
         samsungCurrentPage = samsungController.page;
-      });
-    });
+      );
+    );
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,

@@ -20,6 +20,7 @@ class CardScrollWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var cardAspectRatio = 9.0 / 16.0;
     var widgetAspectRatio = cardAspectRatio * 1.3;
+    // var widgetAspectRatio = 1.8;
 
     return AspectRatio(
       aspectRatio: widgetAspectRatio,
